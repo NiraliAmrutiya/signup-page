@@ -1,29 +1,34 @@
+import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
   const [enteredEmail, setenteredEmail] = useState("");
   const [validEmail, setValidEmail] = useState("");
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+
   const handleEmailChange = (e) => {
     setenteredEmail(e.target.value);
-    setValidEmail(enteredEmail.includes('@'));
+    setValidEmail(enteredEmail.includes("@"));
   };
 
-  const handleValidEmail = e => {
+  const handleValidEmail = (e) => {
     if (!validEmail) {
-        setError("Please enter valid email")
+      setError("Please enter valid email");
+    } else {
+      setError("Valid Email add");
     }
-    else{
-        setError("Valid Email add")
-    }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault(); // it prevent default property i.e. here it prevent from submitting the form also without preventDefault if the form is submitted the page gets reload
+    navigate("/home");
   };
   return (
-    <>
+    <React.Fragment>
+      <h3>Sign Up Form</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email</label>
@@ -49,7 +54,7 @@ const SignupForm = () => {
         </div>
         <button>Create Button</button>
       </form>
-    </>
+    </React.Fragment>
   );
 };
 
