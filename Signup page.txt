@@ -1,0 +1,27 @@
+Signup page
+1st commit
+username - txt - valid email address
+pwd -txt 
+confirm pwd - txt
+create account - button
+
+2nd commit
+valid email address
+
+3rd commit
+pwd =  confirm pwd
+
+4th commit
+10 characters
+1 special character
+numeric
+uppercase and lowercase alphabets
+
+5th commit
+You have successfully logged in page!
+
+6 - unit cases
+
+
+
+preventDefault() - it prevent default property i.e. here it prevent from submitting the form also without preventDefault if the form is submitted the page gets reload

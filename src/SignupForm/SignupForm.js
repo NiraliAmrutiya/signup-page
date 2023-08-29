@@ -1,4 +1,6 @@
+import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { validPassword } from "../RegEx.js";
 //password conditions
 
@@ -9,6 +11,8 @@ const SignupForm = () => {
   const [validEmail, setValidEmail] = useState("");
   const [error, setError] = useState("");
   const [pwdError, setPwdError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEnteredEmail(e.target.value);
@@ -22,6 +26,11 @@ const SignupForm = () => {
     } else {
       setError("Valid Email add");
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // it prevent default property i.e. here it prevent from submitting the form also without preventDefault if the form is submitted the page gets reload
+    navigate("/home");
   };
 
   const handleValidPassword = () => {
@@ -39,17 +48,6 @@ const SignupForm = () => {
     setEnteredConfirmPwd(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    // it prevent default property i.e. here it prevent from submitting the form also without preventDefault if the form is submitted the page gets reload
-    e.preventDefault();
-
-    //checks the password and confirm password matches
-    if (enteredPwd === enteredConfirmPwd) {
-      console.log("Confirm Password does match");
-    } else {
-      console.log("Password does not match");
-    }
-  };
   return (
     <form onSubmit={handleSubmit}>
       <div>

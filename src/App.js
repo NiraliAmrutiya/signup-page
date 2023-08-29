@@ -1,12 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import SignupForm from "./SignupForm/SignupForm";
+import HomePage from "./HomePage/HomePage";
 
 function App() {
   return (
-    <div>
-      <h3>Sign Up Form</h3>
-      <SignupForm />
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/home" element={<HomePage />} />
+          <Route exact path="/" element={<SignupForm />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
